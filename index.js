@@ -13,7 +13,7 @@ const cookieParser = require("cookie-parser");
 const {checkauthorization,ristrictTO } = require("./middleware/auth");
 
 //connection db
-connectdb('mongodb://127.0.0.1:27017/short-id').then(()=>console.log("db connected")); // 5 db
+connectdb(process.env.MONGODB ?? 'mongodb://127.0.0.1:27017/short-id').then(()=>console.log("db connected")); // 5 db
 
 // middleware
 app.use(express.json()); // 6 e
